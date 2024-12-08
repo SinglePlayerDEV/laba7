@@ -1,0 +1,46 @@
+#include <iostream> 
+#include <string> 
+#include <iomanip>
+#include <math.h>
+using namespace std;
+
+struct children {
+	string name;
+	string gender;
+	unsigned age;
+	unsigned height;
+};
+
+int main()
+{
+	setlocale(LC_ALL, "ru");
+	const int max = 3;
+	int sum = 0;
+	int boy = 0;
+	children child[max];
+	for (int i = 0; i < max; i++) {
+		cout << "information for children " << i + 1 << endl;
+		cout << "enter name your children ";
+		cin >> child[i].name;
+		cout << "enter gender your children " ;
+		cin >> child[i].gender;
+		cout << "enter your age ";
+		cin >> child[i].age;
+		cout << "enter your hight ";
+		cin >> child[i].height;
+	}
+	
+		for (int i = 0; i < max; i++) {
+		
+			if (child[i].gender == "M") {
+				sum += child[i].height;
+				boy++;
+			}
+		}
+	 int  aver = sum / boy;
+	for (int i = 0; i < max; i++) {
+		cout << "name: " << child[i].name << " gender: " << child[i].gender << " age: " << child[i].age << " hight:" << child[i].height << endl;
+	}
+	cout <<"average boys = " << aver;
+	return 0;
+}
