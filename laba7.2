@@ -1,0 +1,52 @@
+#include <iostream> 
+#include<string> 
+using namespace std;
+
+
+struct Point {
+	double x;
+	double y;
+};
+
+struct Circle {
+	double radius;
+	Point center;
+};
+int main()
+{
+	setlocale(LC_ALL, "ru");
+	const int NUM_CIRCLES = 4;
+
+	Circle circ[NUM_CIRCLES];
+
+	// Ввод информации о каждой окружности 
+	for (int i = 0; i < NUM_CIRCLES; i++) {
+		cout << "curcle " << i + 1  << endl;
+
+		cout<< "rad: ";
+		cin >> circ[i].radius;
+
+		cout << "enter x: ";
+		cin >> circ[i].center.x;
+
+		cout << "enter y: ";
+		cin >> circ[i].center.y;
+	}
+
+	// Нахождение окружности с наибольшим радиусом 
+	int maxRadiusIndex = 0;
+	double maxRadius = circ[0].radius;
+
+	for (int i = 1; i < NUM_CIRCLES; i++) {
+		if (circ[i].radius > maxRadius) {
+			maxRadius = circ[i].radius;
+			maxRadiusIndex = i;
+		}
+	}
+
+	// Вывод координат центра окружности с наибольшим радиусом 
+	cout << endl;
+	cout << "Координаты центра окружности с наибольшим радиусом (" << maxRadius << "): " << endl;
+	cout << "X: " << circ[maxRadiusIndex].center.x << endl;
+	cout << "Y: " << circ[maxRadiusIndex].center.y << endl;
+}
